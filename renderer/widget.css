@@ -1,0 +1,55 @@
+:root {
+  --bg: #1b1726;
+  --panel: #241f33;
+  --panel-2: #2d2740;
+  --line: #3a3352;
+  --text: #ece7f6;
+  --muted: #9a92b3;
+  --accent: #d97757;
+  --working: #5fd38d;
+  --waiting: #ff5d5d;
+  --done: #ffc857;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+  font: 12px/1.35 "Segoe UI", system-ui, sans-serif; overflow: hidden; user-select: none; }
+body { display: flex; flex-direction: column; border: 1px solid var(--line); }
+[hidden] { display: none !important; }
+
+header { display: flex; align-items: center; gap: 7px; padding: 7px 6px 7px 10px; background: var(--panel);
+  border-bottom: 1px solid var(--line); -webkit-app-region: drag; flex: none; }
+header b { font-size: 12px; }
+#critter { width: 16px; height: 10px; image-rendering: pixelated; }
+#sum { color: var(--muted); white-space: nowrap; }
+.sp { flex: 1; }
+header button { -webkit-app-region: no-drag; background: none; border: none; color: var(--muted); cursor: pointer;
+  font-size: 13px; width: 24px; height: 22px; border-radius: 4px; }
+header button:hover { background: var(--panel-2); color: var(--text); }
+#close:hover { color: var(--waiting); }
+
+#limits { padding: 7px 10px 6px; display: grid; grid-template-columns: auto 1fr auto; gap: 3px 8px; align-items: center;
+  border-bottom: 1px solid var(--line); font: 11px Consolas, monospace; flex: none; }
+#limits:empty { display: none; }
+.lim-label { color: var(--muted); }
+.lim-bar { height: 6px; background: #221f2c; border-radius: 1px; overflow: hidden; }
+.lim-bar i { display: block; height: 100%; }
+.lim-val { color: var(--muted); white-space: nowrap; }
+.lim-val b { font-weight: 700; }
+
+#list { list-style: none; margin: 0; padding: 4px; overflow-y: auto; flex: 1; }
+#list li { display: flex; gap: 8px; align-items: center; padding: 5px 6px; border-radius: 4px; cursor: pointer;
+  border-left: 3px solid transparent; }
+#list li:hover { background: var(--panel-2); }
+#list li.waiting { border-left-color: var(--waiting); animation: pulse 1.4s ease-in-out infinite; }
+#list li.done { border-left-color: var(--done); }
+#list li.working { border-left-color: var(--working); }
+#list li.quiet { opacity: .55; }
+@keyframes pulse { 50% { background: rgba(255, 93, 93, .12); } }
+#list canvas { width: 20px; height: 24px; image-rendering: pixelated; flex: none; }
+.w-main { min-width: 0; flex: 1; }
+.w-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.w-sub { color: var(--muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#empty { color: var(--muted); text-align: center; padding: 20px 10px; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'">
+  <title>Claude Office — виджет</title>
+  <link rel="stylesheet" href="widget.css">
+</head>
+<body>
+  <header>
+    <canvas id="critter" width="16" height="10"></canvas>
+    <b>Claude Office</b>
+    <span id="sum"></span>
+    <span class="sp"></span>
+    <button id="open" title="Открыть офис">⤢</button>
+    <button id="close" title="Скрыть виджет (вернуть — из трея или кнопкой в офисе)">✕</button>
+  </header>
+  <div id="limits"></div>
+  <ul id="list"></ul>
+  <div id="empty" hidden>Активных агентов нет</div>
+  <script src="office.js"></script>
+  <script src="widget.js"></script>
+</body>
+</html>

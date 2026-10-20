@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:">
+  <title>Claude Office</title>
+  <link rel="stylesheet" href="../node_modules/@xterm/xterm/css/xterm.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand"><span class="logo"></span>Claude Office</div>
+    <div id="stats"></div>
+    <div class="spacer"></div>
+    <button id="btn-rest-all" class="btn" hidden title="Все агенты со статусом «готово» уйдут в зону отдыха">☕ Готовых — отдыхать</button>
+    <button id="btn-new" class="btn primary">+ Новый агент</button>
+    <button id="btn-widget" class="btn" title="Маленькое окно поверх рабочего стола; работает и когда офис закрыт">▣ Виджет</button>
+    <button id="btn-term" class="btn">Терминалы</button>
+  </header>
+
+  <main id="main">
+    <section id="stage">
+      <canvas id="office"></canvas>
+      <div id="empty" hidden>
+        <p>В офисе пока пусто.</p>
+        <p class="muted">Здесь появятся сессии Claude Code за последние 24 часа.<br>Запусти новую кнопкой «+ Новый агент».</p>
+      </div>
+    </section>
+
+    <aside id="side">
+      <div class="side-title">Агенты</div>
+      <ul id="agents"></ul>
+      <div id="hidden-bar" hidden></div>
+      <div id="details" hidden></div>
+    </aside>
+  </main>
+
+  <section id="drawer" class="collapsed">
+    <div id="tabs"><span class="muted none">Нет открытых терминалов</span></div>
+    <div id="terms"></div>
+  </section>
+
+  <div id="modal" hidden><div id="modal-card"></div></div>
+  <div id="toast" hidden></div>
+
+  <script src="../node_modules/@xterm/xterm/lib/xterm.js"></script>
+  <script src="../node_modules/@xterm/addon-fit/lib/addon-fit.js"></script>
+  <script src="office.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
